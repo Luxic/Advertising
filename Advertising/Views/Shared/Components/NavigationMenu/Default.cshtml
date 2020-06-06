@@ -1,0 +1,48 @@
+﻿@model Advertising.ViewModels.MenuFormIndexViewModel
+
+@using System.Linq;
+@using Advertising.Core.Entities
+@using Advertising.ViewModels
+
+@if (Context.User.Identity.IsAuthenticated)
+{
+	<div class="wrapper row2">
+		<nav id="topnav">
+			<ul class="clear">
+
+				@{
+					CreateMenu(Model.MenuFormViewModel, Model.menuFormRoot.id);
+				}
+
+				@functions
+				{
+					void CreateMenu(List<MenuFormViewModel> form, int parrent)
+					{
+						var forms = form.Where(x => x.parrentId == parrent);
+
+						foreach (var m in forms)
+						{
+							@Html.Raw(string.Format("<li class='drop'><a href='#'>{0}</a>", m.text));
+
+							var child = form.Where(x => x.parrentId == m.id);
+
+							if (child.Count() != 0)
+							{
+								@Html.Raw("<ul>");
+								CreateMenu(form, m.id);
+								@Html.Raw("</ul></li>");
+
+							}
+							else
+							{
+								@Html.Raw("</li>");
+							}
+						}
+
+						return;
+					}
+				}
+			</ul>
+		</nav>
+	</div>
+}

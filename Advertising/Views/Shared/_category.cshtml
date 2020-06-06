@@ -1,0 +1,15 @@
+﻿@using Advertising.ViewModels
+
+@model CategoryViewModel
+
+<tr>
+	<td>
+		@Html.ActionLink(@Model.Name, "Index", new { id = @Model.Id })
+
+		@if (Context.User.IsInRole("Admin"))
+		{
+			@Html.Raw(" ") @Html.ActionLink("Edit", "Edit", "Home", new { id = @Model.Id })
+			@Html.Raw(" ") @Html.ActionLink("Delete", "Delete", new { categoryId = @Model.Id })
+		}
+	</td>
+</tr> 

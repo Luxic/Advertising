@@ -1,0 +1,45 @@
+﻿@*@using Advertising.Infrastructure.Identity
+	@using Microsoft.AspNetCore.Identity
+	@inject SignInManager<ApplicationUser> SignInManager
+	@inject UserManager<ApplicationUser> UserManager*@
+
+ 
+
+<style type="text/css">
+	.topcorner {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+</style>
+
+<div class="topcorner">
+	@*<div class="wrapper row2">*@
+	<nav id="topnav">
+		<ul class="clear">
+			@*@if (SignInManager.IsSignedIn(User))
+				{*@
+			@if (Context.User.Identity.IsAuthenticated)
+			{
+				<li class="nav-item">
+					<a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+				</li>
+				<li class="nav-item">
+					<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+						<button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+					</form>
+				</li>
+			}
+			else
+			{
+				<li class="nav-item">
+					<a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+				</li>
+			}
+		</ul>
+	</nav>
+	@*</div>*@
+</div>

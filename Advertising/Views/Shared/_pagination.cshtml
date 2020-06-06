@@ -1,0 +1,18 @@
+﻿@model PaginationViewModel
+
+	<div>
+		<div id="Previous">
+			<a asp-route-pageid="@(Model.ActualIndex - 1)">Previous</a>
+		</div>
+
+		<div class="col-md-8 col-xs-12">
+			<span class="esh-pager-item">
+				Showing @Model.ItemsPerPage of @Model.TotalItems products - Page @(Model.ActualIndex + 1) - @Model.TotalPages
+			</span>
+		</div>
+
+		<div id="Next">
+			<a asp-route-pageid="@(Model.ActualIndex - 1)">Next</a>
+		</div>
+
+	</div>

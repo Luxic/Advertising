@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>textured_orbs</title>
+	<meta name="description" content="website description" />
+	<meta name="keywords" content="website keywords, website keywords" />
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+
+	<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+
+	<link rel="stylesheet" type="text/css" href="~/css/framework.css" />
+	<link rel="stylesheet" type="text/css" href="~/css/ie.css" />
+	<link rel="stylesheet" type="text/css" href="~/css/layout.css" />
+	<link rel="stylesheet" type="text/css" href="~/css/mediaqueries.css" />
+	<link rel="stylesheet" type="text/css" href="~/css/navi.css" />
+</head>
+
+<body>
+
+
+	<div class="wrapper row1">
+		<header id="header" class="clear">
+			<div id="hgroup">
+				<h1><a href="#">Advertising</a></h1>
+			</div>
+		</header>
+		<partial name="_LoginPartial" />
+	</div>
+
+	@(await Component.InvokeAsync("NavigationMenu"))
+
+	<div class="wrapper row3">
+		<div id="container">
+
+			@RenderBody()
+
+		</div>
+	</div>
+	<!-- Footer -->
+	<div class="wrapper row4">
+		<footer id="footer" class="clear">
+			<p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+			<p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+		</footer>
+	</div>
+
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@RenderSection("Scripts", required: false)
+</body>
+</html>

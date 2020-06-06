@@ -1,0 +1,46 @@
+﻿@using Advertising.ViewModels
+
+@model CategoryIndexViewModel
+
+@{
+	ViewData["Title"] = "";
+}
+
+<div class="text-center">
+
+	@if (Context.User.IsInRole("Admin"))
+		@Html.ActionLink("Create new", "Create")
+
+
+	<form>
+		<div class="input-group">
+			<input name="ch" class="form-control" type="text" placeholder="Search" />
+			<div class="input-group-append">
+				<span class="input-group-text" id="basic">
+					<i aria-hidden="true"></i>
+				</span>
+			</div>
+		</div>
+
+	</form>
+
+	@if (Model.Categories.Any())
+	{
+		@foreach (var item in Model.Categories)
+		{
+
+
+			<div class="esh-catalog-item col-md-4">
+				<partial name="_category" for="@item" />
+			</div>
+		}
+
+	}
+	else
+	{
+		<div>
+			THERE ARE NO RESULTS THAT MATCH YOUR SEARCH
+		</div>
+	}
+</div>
+

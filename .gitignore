@@ -3,3 +3,11 @@
 ################################################################################
 
 /.vs
+/Advertising/bin/Debug/netcoreapp3.1
+/Advertising/obj
+/Advertising.Core/bin/Debug/netcoreapp3.1
+/Advertising.Core/obj
+/Advertising.Infrastructure/bin/Debug/netcoreapp3.1
+/Advertising.Infrastructure/obj
+/DataService/bin/Debug/netcoreapp3.1
+/DataService/obj
